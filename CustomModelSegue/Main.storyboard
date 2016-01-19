@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D9c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9d-Yd-Mib">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15E27e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="G9d-Yd-Mib">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -43,10 +43,10 @@
             </objects>
             <point key="canvasLocation" x="1341" y="469"/>
         </scene>
-        <!--Filter Container View Controller-->
+        <!--Filter ContainerVC-->
         <scene sceneID="BW1-81-Lel">
             <objects>
-                <viewController id="EWb-ts-8Hy" customClass="FilterContainerViewController" customModule="CustomModelSegue" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="EWb-ts-8Hy" customClass="FilterContainerVC" customModule="CustomModelSegue" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="i5C-ba-KvJ"/>
                         <viewControllerLayoutGuide type="bottom" id="ksy-lo-OAF"/>
@@ -64,14 +64,30 @@
                                     <segue destination="gww-Ki-fAL" kind="embed" id="j7j-TX-Gcp"/>
                                 </connections>
                             </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1s-8p-MMv">
+                                <rect key="frame" x="0.0" y="0.0" width="595" height="600"/>
+                                <connections>
+                                    <action selector="doClose" destination="EWb-ts-8Hy" eventType="touchUpInside" id="GQb-3g-I8m"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
                         <constraints>
+                            <constraint firstItem="a1s-8p-MMv" firstAttribute="leading" secondItem="9mr-4n-9SW" secondAttribute="leading" id="6jh-E2-i7N"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="bottom" secondItem="ksy-lo-OAF" secondAttribute="top" id="ABK-JG-W9U"/>
+                            <constraint firstItem="PvC-Jk-rIc" firstAttribute="leading" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="B5m-vx-swO"/>
                             <constraint firstAttribute="trailing" secondItem="PvC-Jk-rIc" secondAttribute="trailing" id="M7V-97-Amu"/>
+                            <constraint firstAttribute="trailing" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="R6l-Pj-PAo"/>
+                            <constraint firstItem="a1s-8p-MMv" firstAttribute="top" secondItem="9mr-4n-9SW" secondAttribute="top" id="TBI-OY-yTk"/>
+                            <constraint firstItem="ksy-lo-OAF" firstAttribute="top" secondItem="a1s-8p-MMv" secondAttribute="bottom" id="VXf-P6-vCh"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="top" secondItem="9mr-4n-9SW" secondAttribute="top" id="bSA-oO-fgH"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="B5m-vx-swO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="widthConstraint" destination="7ut-kC-ee7" id="SkQ-p0-1nE"/>

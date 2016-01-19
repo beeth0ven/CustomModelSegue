@@ -1,15 +1,15 @@
 //
-//  FilterContainerViewController.swift
+//  FilterContainerVC.swift
 //  CustomModelSegue
 //
 //  Created by luojie on 15/12/21.
 //  Copyright © 2015年 LuoJie. All rights reserved.
-//  Demo Url:https://github.com/beeth0ven/CustomModelSegue
+//  Demo Url: https://github.com/beeth0ven/CustomModelSegue
 
 import UIKit
 
 // This VC is required, and controls the animation
-class FilterContainerViewController: UIViewController {
+class FilterContainerVC: UIViewController {
     
     @IBOutlet weak var widthConstraint: NSLayoutConstraint! { didSet { tableViewWidth = widthConstraint.constant } }
     private var tableViewWidth: CGFloat!
@@ -34,6 +34,9 @@ class FilterContainerViewController: UIViewController {
         super.viewWillAppear(animated)
         widthConstraint.constant = 0
         UIView.animateWithDuration(0.3) { self.view.layoutIfNeeded() }
+    }
+    @IBAction func doClose() {
+        presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 }
 
