@@ -11,30 +11,43 @@ import UIKit
 // This VC is required, and controls the animation
 class FilterContainerVC: UIViewController {
     
-    @IBOutlet weak var widthConstraint: NSLayoutConstraint! { didSet { tableViewWidth = widthConstraint.constant } }
-    private var tableViewWidth: CGFloat!
+    @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        widthConstraint.constant = 0
+    private var isContainerShowed: Bool! {
+        didSet {
+            containerTrailingConstraint.active = isContainerShowed
+            containerLeadingConstraint.active = !isContainerShowed
+        }
     }
-    
+
+    // Appear
     private var isSizeUpdated = false
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         guard !isSizeUpdated else { return }
         isSizeUpdated = true
-        Queue.Main.execute { // Fix a bug 
-            self.widthConstraint.constant = self.tableViewWidth
+        // Fix a bug: story board will override the constraint's active state which is setted by code before viewDidLayoutSubviews.
+        // So after viewDidLayoutSubviews we change the active state.
+        
+        // Set default constraint state below:
+        isContainerShowed = false
+        view.layoutIfNeeded()
+        
+        // Do the animation and show container
+        Queue.Main.execute { // Fix a bug
+            self.isContainerShowed = true
             UIView.animateWithDuration(0.3) { self.view.layoutIfNeeded() }
         }
     }
     
+    // Disappear
     override func viewWillDisappear(animated: Bool) {
         super.viewWillAppear(animated)
-        widthConstraint.constant = 0
+        isContainerShowed = false
         UIView.animateWithDuration(0.3) { self.view.layoutIfNeeded() }
     }
+    
     @IBAction func doClose() {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }

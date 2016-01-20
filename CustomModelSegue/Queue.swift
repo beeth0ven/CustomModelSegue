@@ -10,24 +10,24 @@ import Foundation
 
 /**
  提供常用线程的简单访问方法. 用 Qos 代表线程对应的优先级。
-    - Main:                 对应主线程
-    - UserInteractive:      对应优先级高的线程
-    - UserInitiated:        对应优先级中的线程
-    - Utility:              对应优先级低的线程
-    - Background:           对应后台的线程
-    
-    例如，异步下载图片可以这样写：
-    ```swift
-    Queue.UserInitiated.execute {
+ - Main:                 对应主线程
+ - UserInteractive:      对应优先级高的线程
+ - UserInitiated:        对应优先级中的线程
+ - Utility:              对应优先级低的线程
+ - Background:           对应后台的线程
  
-        let url = NSURL(string: "http://image.jpg")!
-        let data = NSData(contentsOfURL: url)!
-        let image = UIImage(data: data)
-        
-        Queue.Main.execute {
-            imageView.image = image
-        }
-    }
+ 例如，异步下载图片可以这样写：
+ ```swift
+ Queue.UserInitiated.execute {
+ 
+ let url = NSURL(string: "http://image.jpg")!
+ let data = NSData(contentsOfURL: url)!
+ let image = UIImage(data: data)
+ 
+ Queue.Main.execute {
+ imageView.image = image
+ }
+ }
  */
 enum Queue: ExcutableQueue {
     case Main
@@ -54,10 +54,10 @@ enum Queue: ExcutableQueue {
 
 /// 提供本 App 要使用的所有 SerialQueue，以下的 case 只是一个例子，可以根据需要修改
 enum SerialQueue: String, ExcutableQueue {
-
+    
     case DownLoadImage = "ovfun.Education.SerialQueue.DownLoadImage"
     case UpLoadFile = "ovfun.Education.SerialQueue.UpLoadFile"
-
+    
     var queue: dispatch_queue_t {
         return dispatch_queue_create(rawValue, DISPATCH_QUEUE_SERIAL)
     }
@@ -71,5 +71,10 @@ protocol ExcutableQueue {
 extension ExcutableQueue {
     func execute(closure: () -> Void) {
         dispatch_async(queue, closure)
+    }
+    
+    func executeAfter(seconds seconds: NSTimeInterval, closure: () -> Void) {
+        let delay = dispatch_time(DISPATCH_TIME_NOW, Int64(seconds * Double(NSEC_PER_SEC)))
+        dispatch_after(delay, queue, closure)
     }
 }

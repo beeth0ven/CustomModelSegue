@@ -64,8 +64,8 @@
                                     <segue destination="gww-Ki-fAL" kind="embed" id="j7j-TX-Gcp"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1s-8p-MMv">
-                                <rect key="frame" x="0.0" y="0.0" width="595" height="600"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1s-8p-MMv">
+                                <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
                                 <connections>
                                     <action selector="doClose" destination="EWb-ts-8Hy" eventType="touchUpInside" id="GQb-3g-I8m"/>
                                 </connections>
@@ -76,21 +76,24 @@
                         <constraints>
                             <constraint firstItem="a1s-8p-MMv" firstAttribute="leading" secondItem="9mr-4n-9SW" secondAttribute="leading" id="6jh-E2-i7N"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="bottom" secondItem="ksy-lo-OAF" secondAttribute="top" id="ABK-JG-W9U"/>
-                            <constraint firstItem="PvC-Jk-rIc" firstAttribute="leading" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="B5m-vx-swO"/>
+                            <constraint firstItem="PvC-Jk-rIc" firstAttribute="leading" secondItem="9mr-4n-9SW" secondAttribute="trailing" priority="900" id="J2S-6s-J1Z"/>
                             <constraint firstAttribute="trailing" secondItem="PvC-Jk-rIc" secondAttribute="trailing" id="M7V-97-Amu"/>
                             <constraint firstAttribute="trailing" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="R6l-Pj-PAo"/>
                             <constraint firstItem="a1s-8p-MMv" firstAttribute="top" secondItem="9mr-4n-9SW" secondAttribute="top" id="TBI-OY-yTk"/>
                             <constraint firstItem="ksy-lo-OAF" firstAttribute="top" secondItem="a1s-8p-MMv" secondAttribute="bottom" id="VXf-P6-vCh"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="top" secondItem="9mr-4n-9SW" secondAttribute="top" id="bSA-oO-fgH"/>
+                            <constraint firstItem="PvC-Jk-rIc" firstAttribute="leading" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="ecs-ZH-LVQ"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="B5m-vx-swO"/>
+                                <exclude reference="R6l-Pj-PAo"/>
+                                <exclude reference="J2S-6s-J1Z"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="widthConstraint" destination="7ut-kC-ee7" id="SkQ-p0-1nE"/>
+                        <outlet property="containerLeadingConstraint" destination="J2S-6s-J1Z" id="RJb-dp-Qjb"/>
+                        <outlet property="containerTrailingConstraint" destination="M7V-97-Amu" id="hXx-gf-8Am"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mFZ-ZT-SU6" userLabel="First Responder" sceneMemberID="firstResponder"/>
