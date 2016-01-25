@@ -13,14 +13,17 @@ class FilterContainerVC: UIViewController {
     
     @IBOutlet weak var containerTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var containerLeadingConstraint: NSLayoutConstraint!
-
+    
+    var configRootViewController:((UIViewController) -> Void)?
+    
+    
     private var isContainerShowed: Bool! {
         didSet {
             containerTrailingConstraint.active = isContainerShowed
             containerLeadingConstraint.active = !isContainerShowed
         }
     }
-
+    
     // Appear
     private var isSizeUpdated = false
     override func viewDidLayoutSubviews() {
@@ -50,6 +53,11 @@ class FilterContainerVC: UIViewController {
     
     @IBAction func doClose() {
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let rootViewController = segue.destinationViewController
+        configRootViewController?(rootViewController)
     }
 }
 

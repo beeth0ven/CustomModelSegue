@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Hallo-->
@@ -56,16 +57,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PvC-Jk-rIc">
-                                <rect key="frame" x="300" y="0.0" width="300" height="600"/>
+                                <rect key="frame" x="200" y="0.0" width="400" height="600"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="7ut-kC-ee7"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7ut-kC-ee7"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <segue destination="gww-Ki-fAL" kind="embed" id="j7j-TX-Gcp"/>
                                 </connections>
                             </containerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a1s-8p-MMv">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                                <rect key="frame" x="0.0" y="0.0" width="200" height="600"/>
                                 <connections>
                                     <action selector="doClose" destination="EWb-ts-8Hy" eventType="touchUpInside" id="GQb-3g-I8m"/>
                                 </connections>
@@ -83,6 +89,7 @@
                             <constraint firstItem="ksy-lo-OAF" firstAttribute="top" secondItem="a1s-8p-MMv" secondAttribute="bottom" id="VXf-P6-vCh"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="top" secondItem="9mr-4n-9SW" secondAttribute="top" id="bSA-oO-fgH"/>
                             <constraint firstItem="PvC-Jk-rIc" firstAttribute="leading" secondItem="a1s-8p-MMv" secondAttribute="trailing" id="ecs-ZH-LVQ"/>
+                            <constraint firstItem="PvC-Jk-rIc" firstAttribute="width" secondItem="9mr-4n-9SW" secondAttribute="width" multiplier="2/3" id="l7Z-ha-NpT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -123,21 +130,21 @@
             <objects>
                 <tableViewController id="K2d-2w-uNo" customClass="FilterTableViewController" customModule="CustomModelSegue" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mM6-9J-YHL">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="Haha" id="Pcs-b2-GvY">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="lC6-U2-fbC" style="IBUITableViewCellStyleDefault" id="X6i-y7-JRJ">
-                                        <rect key="frame" x="0.0" y="94" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="94" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X6i-y7-JRJ" id="JxZ-z2-kJA">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Hallo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lC6-U2-fbC">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="370" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,14 +158,14 @@
                             <tableViewSection headerTitle="Eazy" id="X1B-XF-gEz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" textLabel="0W0-dD-LfG" style="IBUITableViewCellStyleDefault" id="XAO-ly-3Fq">
-                                        <rect key="frame" x="0.0" y="189" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="189" width="400" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XAO-ly-3Fq" id="9Oi-vy-Lfm">
-                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="400" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Go" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0W0-dD-LfG">
-                                                    <rect key="frame" x="15" y="0.0" width="270" height="43"/>
+                                                    <rect key="frame" x="15" y="0.0" width="370" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -213,6 +220,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LT0-YB-2Do"/>
+        <segue reference="zU6-LQ-LLa"/>
     </inferredMetricsTieBreakers>
 </document>
